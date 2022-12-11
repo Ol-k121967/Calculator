@@ -41,33 +41,33 @@ document.getElementById('btn_0').addEventListener('click', function () {
     inputWindow.value += '0';
 })
 document.getElementById('btn_sum').addEventListener('click', function () {
-    lastOperand = lastOperand + parseInt(inputWindow.value);
+    lastOperand = parseInt(inputWindow.value);
     operation = 'sum';
     inputWindow.value = '';
     const result = lastOperand;
 })
 document.getElementById('btn_def').addEventListener('click', function () {
-    lastOperand = lastOperand - parseInt(inputWindow.value);
+    lastOperand = parseInt(inputWindow.value);
     operation = 'def';
     inputWindow.value = '';
-    const result = lastOperand;
+    
 })
 document.getElementById('btn_multi').addEventListener('click', function () {
-    lastOperand = lastOperand * parseInt(inputWindow.value);
+    lastOperand = parseInt(inputWindow.value);
     operation = 'multi';
     inputWindow.value = '';
-    const result = lastOperand;
+    
 })
 document.getElementById('btn_div').addEventListener('click', function () {
-    lastOperand = lastOperand / parseInt(inputWindow.value);
+    lastOperand = parseInt(inputWindow.value);
     operation = 'div';
     inputWindow.value = '';
-    const result = lastOperand;
+   
 })
 document.getElementById('btn_sqrt').addEventListener('click', function () {
     lastOperand = parseInt(inputWindow.value);
     operation = 'sqrt';
-    inputWindow.value = '';
+   // inputWindow.value = '';
 })
 
 document.getElementById('btn_calc').addEventListener('click', function () {
@@ -79,19 +79,25 @@ document.getElementById('btn_calc').addEventListener('click', function () {
     }
     if (operation === 'def'){
         const result = lastOperand - parseInt(inputWindow.value);
-        operation = 'def';
+        operation = null;
         inputWindow.value = result;
         lastOperand = 0;
     }
     if (operation === 'div'){
         const result = lastOperand / parseInt(inputWindow.value);
-        operation = 'div';
+        operation = null;
         inputWindow.value = result;
         lastOperand = 0;
     }
     if (operation === 'multi'){
         const result = lastOperand * parseInt(inputWindow.value);
-        operation = 'multi';
+        operation = null;
+        inputWindow.value = result;
+        lastOperand = 0;
+    }
+    if (operation === 'sqrt'){
+        const result = Math.sqrt(parseInt(inputWindow.value)) ;
+        operation = null;
         inputWindow.value = result;
         lastOperand = 0;
     }
